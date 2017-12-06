@@ -1,4 +1,4 @@
-package aoc.y17.d4;
+package nl.nibsi.aoc.y17.d4;
 
 final class ProblemTwo {
 

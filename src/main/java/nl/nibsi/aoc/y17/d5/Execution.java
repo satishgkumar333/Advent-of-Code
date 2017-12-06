@@ -1,4 +1,4 @@
-package aoc.y17.d5;
+package nl.nibsi.aoc.y17.d5;
 
 import java.io.*;
 import java.util.*;
