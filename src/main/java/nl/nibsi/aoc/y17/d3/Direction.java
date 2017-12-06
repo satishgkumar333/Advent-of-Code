@@ -1,4 +1,4 @@
-package aoc.y17.d3;
+package nl.nibsi.aoc.y17.d3;
 
 enum Direction {
 

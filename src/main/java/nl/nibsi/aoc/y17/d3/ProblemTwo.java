@@ -1,9 +1,9 @@
-package aoc.y17.d3;
+package nl.nibsi.aoc.y17.d3;
 
 import java.util.*;
 import java.util.stream.*;
 
-import static aoc.y17.d3.Rotation.*;
+import static nl.nibsi.aoc.y17.d3.Rotation.*;
 
 final class ProblemTwo {
   
