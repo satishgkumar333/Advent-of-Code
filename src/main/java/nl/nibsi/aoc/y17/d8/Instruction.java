@@ -41,11 +41,11 @@ final class Instruction {
     }
   }
 
-  String registerName() {
+  String getRegisterName() {
     return registerName;
   }
 
-  void executeWith(Map<String, Integer> registers) {
+  void executeOn(Map<String, Integer> registers) {
     if (operator.apply(registers.getOrDefault(conditionRegisterName, 0), conditionValue))
       registers.merge(registerName, isIncrement ? increment : -increment, (existing, inc) -> existing + inc);
   }

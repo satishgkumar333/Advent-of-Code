@@ -12,8 +12,8 @@ final class Machine {
   private int greatestValue;
 
   void executeInstruction(Instruction instruction) {
-    instruction.executeWith(registers);
-    int value = registers.getOrDefault(instruction.registerName(), 0);
+    instruction.executeOn(registers);
+    int value = registers.getOrDefault(instruction.getRegisterName(), 0);
     if (value > greatestValue)
       greatestValue = value;
   }
