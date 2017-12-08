@@ -10,7 +10,7 @@ import static java.util.stream.Stream.*;
 
 final class Execution {
 
-  static Execution read() {
+  static Execution readInput() {
     try (
       BufferedReader reader = new BufferedReader(new InputStreamReader(Execution.class.getResourceAsStream("input.txt")));
     ) {
@@ -45,7 +45,7 @@ final class Execution {
   }
 
   public static void main(String... args) {
-    Execution execution = Execution.read();
+    Execution execution = Execution.readInput();
     int steps = 1;
     while (execution.executeCurrentInstruction())
       steps++;
