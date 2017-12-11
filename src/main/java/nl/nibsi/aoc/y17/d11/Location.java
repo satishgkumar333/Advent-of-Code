@@ -56,7 +56,7 @@ final class Location {
     return String.format("(%d, %d)", x,y);
   }
 
-  Optional<Direction> nearerTo(Location target) {
+  Optional<Direction> directionOf(Location target) {
     if (this.equals(target))
       return Optional.empty();
 
@@ -75,7 +75,7 @@ final class Location {
 
     Location location = this;
     while (!location.equals(target)) {
-      Direction nearer = location.nearerTo(target).get();
+      Direction nearer = location.directionOf(target).get();
       location = location.go(nearer);
       shortestPath.merge(nearer, 1, Integer::sum);
     }
