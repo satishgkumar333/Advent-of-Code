@@ -32,7 +32,7 @@
               <configuration>
                 <archive>
                   <manifest>
-                    <mainClass>nl.nibsi.aoc.y17.d11.Problem</mainClass>
+                    <mainClass>nl.nibsi.aoc.y17.d13.Firewall</mainClass>
                   </manifest>
                 </archive>
               </configuration>
