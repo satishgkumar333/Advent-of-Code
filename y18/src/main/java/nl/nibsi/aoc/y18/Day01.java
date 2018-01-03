@@ -4,7 +4,7 @@ import java.io.*;
 
 import nl.nibsi.aoc.*;
 
-public final class DayOne implements Puzzle {
+public final class Day01 implements Puzzle {
 
   @Override
   public String solveFirstPart(Reader inputReader) throws IOException {
