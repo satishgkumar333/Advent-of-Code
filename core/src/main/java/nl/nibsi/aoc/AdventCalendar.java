@@ -6,16 +6,12 @@ import java.util.*;
 
 import nl.nibsi.aoc.spi.*;
 
-import static java.time.format.DateTimeFormatter.*;
 import static java.time.format.FormatStyle.*;
 
 import static java.util.Collections.*;
-import static java.util.ResourceBundle.*;
 import static java.util.stream.Collectors.*;
 
 public final class AdventCalendar {
-
-  private static final String PUZZLE_NAME_BUNDLE_NAME = "nl.nibsi.aoc.PuzzleNames";
 
   private final Map<LocalDate, Puzzle> puzzles;
   private final List<PuzzleNameProvider> puzzleNameProviders;
@@ -39,16 +35,6 @@ public final class AdventCalendar {
 
     if (this.puzzles.containsValue(null) || this.puzzleNameProviders.contains(null))
       throw new IllegalArgumentException();
-
-    this.puzzleNameProviders.add((date, locale) -> {
-      try {
-        return Optional.of(getBundle(PUZZLE_NAME_BUNDLE_NAME, locale).getString(date.format(ISO_LOCAL_DATE)));
-      }
-
-      catch (MissingResourceException ex) {
-        return Optional.of(date.format(DateTimeFormatter.ofLocalizedDate(LONG).withLocale(locale)));
-      }
-    });
   }
 
   public AdventCalendar(Map<? extends LocalDate, ? extends Puzzle> puzzles, PuzzleNameProvider puzzleNameProvider) {
@@ -98,6 +84,6 @@ public final class AdventCalendar {
       .filter(Optional::isPresent)
       .map(Optional::get)
       .findFirst()
-      .orElseGet(date::toString);
+      .orElseGet(() -> date.format(DateTimeFormatter.ofLocalizedDate(LONG).withLocale(locale)));
   }
 }

@@ -37,6 +37,7 @@ public final class PuzzleRunnerForm {
     this.puzzlePicker = new JComboBox<>();
 
     initComponents();
+    initListeners();
   }
 
   public void show() {
@@ -49,23 +50,25 @@ public final class PuzzleRunnerForm {
     frame.dispose();
   }
   
-  public Year selectedYear() {
-    return (Year) yearPicker.getSelectedItem();
+  public Optional<Year> selectedYear() {
+    return Optional.ofNullable((Year) yearPicker.getSelectedItem());
   }
   
-  public NamedAndDatedPuzzle selectedPuzzle() {
-    return (NamedAndDatedPuzzle) puzzlePicker.getSelectedItem();
+  public Optional<NamedAndDatedPuzzle> selectedPuzzle() {
+    return Optional.ofNullable((NamedAndDatedPuzzle) puzzlePicker.getSelectedItem());
   }
 
   private void updatePuzzlePicker() {
     puzzlePicker.removeAllItems();
-    calendar.getPuzzleDates().stream()
-      .filter(date -> Year.from(date).equals(selectedYear()))
-      .sorted()
-      .map(calendar::getPuzzleForDate)
-      .filter(Optional::isPresent)
-      .map(Optional::get)
-      .forEachOrdered(puzzlePicker::addItem);
+    selectedYear().ifPresent(selectedYear ->
+      calendar.getPuzzleDates().stream()
+        .filter(date -> Year.from(date).equals(selectedYear))
+        .sorted()
+        .map(calendar::getPuzzleForDate)
+        .filter(Optional::isPresent)
+        .map(Optional::get)
+        .forEachOrdered(puzzlePicker::addItem)
+    );
   }
 
   private void updatePuzzle() {
@@ -73,20 +76,28 @@ public final class PuzzleRunnerForm {
   }
 
   private void initComponents() {
-    yearPicker.addItemListener(event -> updatePuzzlePicker());
-    puzzlePicker.addItemListener(event -> updatePuzzle());
-
     puzzlePicker.setRenderer(new DefaultListCellRenderer() {
       @Override
       public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
         JLabel component = (JLabel) super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
         NamedAndDatedPuzzle puzzle = (NamedAndDatedPuzzle) value;
-        component.setText(puzzle.getName());
+        if (puzzle != null)
+          component.setText(puzzle.getName());
+
         return component;
       }
     });
     
     frame.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+
+    frame.setLayout(new GridBagLayout());
+    GridBagConstraints constraints = new GridBagConstraints();
+
+    frame.add(yearPicker, constraints);
+    frame.add(puzzlePicker, constraints);
+  }
+
+  private void initListeners() {
     frame.addWindowListener(new WindowAdapter() {
       @Override
       public void windowClosing(WindowEvent event) {
@@ -94,10 +105,7 @@ public final class PuzzleRunnerForm {
       }
     });
 
-    frame.setLayout(new GridBagLayout());
-    GridBagConstraints constraints = new GridBagConstraints();
-
-    frame.add(yearPicker, constraints);
-    frame.add(puzzlePicker, constraints);
+      yearPicker.addItemListener(event -> updatePuzzlePicker());
+    puzzlePicker.addItemListener(event -> updatePuzzle());
   }
 }
