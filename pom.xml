@@ -8,14 +8,38 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>nl.nibsi.aoc</groupId>
-  <artifactId>core</artifactId>
+  <artifactId>parent</artifactId>
   <version>0.1.0</version>
-  
-  <name>Advent of Code</name>
+  <packaging>pom</packaging>
 
+  <name>Advent of Code</name>
+  
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>nl.nibsi.aoc</groupId>
+        <artifactId>core</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>nl.nibsi.aoc</groupId>
+        <artifactId>swing</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+  
+  <modules>
+    <module>core</module>
+    <module>swing</module>
+    <module>exe</module>
+    <module>y17</module>
+  </modules>
 </project>

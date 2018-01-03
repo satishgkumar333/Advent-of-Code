@@ -14,14 +14,8 @@
   </parent>
 
   <groupId>nl.nibsi.aoc</groupId>
-  <artifactId>y17</artifactId>
-
-  <name>Year 2017</name>
-
-  <dependencies>
-    <dependency>
-      <groupId>nl.nibsi.aoc</groupId>
-      <artifactId>core</artifactId>
-    </dependency>
-  </dependencies>
+  <artifactId>core</artifactId>
+  
+  <name>Core Library</name>
+  
 </project>

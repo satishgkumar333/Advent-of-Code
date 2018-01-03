@@ -14,14 +14,21 @@
   </parent>
 
   <groupId>nl.nibsi.aoc</groupId>
-  <artifactId>y17</artifactId>
+  <artifactId>exe</artifactId>
 
-  <name>Year 2017</name>
+  <name>Executable</name>
 
   <dependencies>
     <dependency>
       <groupId>nl.nibsi.aoc</groupId>
-      <artifactId>core</artifactId>
+      <artifactId>swing</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>nl.nibsi.aoc</groupId>
+      <artifactId>y17</artifactId>
+      <version>${project.version}</version>
+      <scope>runtime</scope>
     </dependency>
   </dependencies>
 </project>

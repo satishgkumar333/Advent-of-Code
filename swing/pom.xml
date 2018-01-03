@@ -14,9 +14,9 @@
   </parent>
 
   <groupId>nl.nibsi.aoc</groupId>
-  <artifactId>y17</artifactId>
-
-  <name>Year 2017</name>
+  <artifactId>swing</artifactId>
+  
+  <name>Swing Puzzle Runner</name>
 
   <dependencies>
     <dependency>

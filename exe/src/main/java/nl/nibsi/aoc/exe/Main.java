@@ -1,4 +1,4 @@
-package nl.nibsi.aoc.y17;
+package nl.nibsi.aoc.exe;
 
 import java.util.*;
 

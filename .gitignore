@@ -1,2 +1,4 @@
-/target/
+/core/target/
+/exe/target/
+/swing/target/
 /y17/target/
