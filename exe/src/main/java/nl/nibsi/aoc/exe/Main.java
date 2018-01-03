@@ -1,19 +1,15 @@
 package nl.nibsi.aoc.exe;
 
-import java.util.*;
+import javax.swing.*;
 
 import nl.nibsi.aoc.*;
-
-import static nl.nibsi.aoc.AdventCalendar.*;
+import nl.nibsi.aoc.swing.*;
 
 final class Main {
 
   public static void main(String... args) {
-    AdventCalendar calendar = load();
-
-    calendar.getPuzzleDates().stream()
-      .map(calendar::getPuzzleForDate)
-      .map(Optional::get)
-      .forEachOrdered(System.out::println);
+    SwingUtilities.invokeLater(() -> {
+      new PuzzleRunnerForm(AdventCalendar.load()).show();
+    });
   }
 }
