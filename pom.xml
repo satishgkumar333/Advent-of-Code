@@ -41,5 +41,6 @@
     <module>swing</module>
     <module>exe</module>
     <module>y17</module>
+    <module>y18</module>
   </modules>
 </project>

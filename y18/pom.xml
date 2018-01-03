@@ -14,28 +14,14 @@
   </parent>
 
   <groupId>nl.nibsi.aoc</groupId>
-  <artifactId>exe</artifactId>
+  <artifactId>y18</artifactId>
 
-  <name>Executable</name>
+  <name>Year 2018</name>
 
   <dependencies>
     <dependency>
       <groupId>nl.nibsi.aoc</groupId>
-      <artifactId>swing</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>nl.nibsi.aoc</groupId>
-      <artifactId>y17</artifactId>
-      <version>${project.version}</version>
-      <scope>runtime</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>nl.nibsi.aoc</groupId>
-      <artifactId>y18</artifactId>
-      <version>${project.version}</version>
-      <scope>runtime</scope>
+      <artifactId>core</artifactId>
     </dependency>
   </dependencies>
 </project>
