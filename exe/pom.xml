@@ -13,7 +13,6 @@
     <version>0.1.0</version>
   </parent>
 
-  <groupId>nl.nibsi.aoc</groupId>
   <artifactId>exe</artifactId>
 
   <name>Executable</name>

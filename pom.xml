@@ -42,5 +42,6 @@
     <module>exe</module>
     <module>y17</module>
     <module>y18</module>
+    <module>year-archetype</module>
   </modules>
 </project>

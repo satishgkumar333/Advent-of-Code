@@ -7,20 +7,24 @@
 >
   <modelVersion>4.0.0</modelVersion>
 
-  <parent>
-    <groupId>nl.nibsi.aoc</groupId>
-    <artifactId>parent</artifactId>
-    <version>0.1.0</version>
-  </parent>
+  <groupId>${groupId}</groupId>
+  <artifactId>${artifactId}</artifactId>
+  <version>${version}</version>
 
-  <artifactId>swing</artifactId>
-  
-  <name>Swing Puzzle Runner</name>
+  <name>Year ${year}</name>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
 
   <dependencies>
     <dependency>
       <groupId>nl.nibsi.aoc</groupId>
       <artifactId>core</artifactId>
+      <version>0.1.0</version>
     </dependency>
   </dependencies>
+  
 </project>

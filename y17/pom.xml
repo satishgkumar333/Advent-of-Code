@@ -13,7 +13,6 @@
     <version>0.1.0</version>
   </parent>
 
-  <groupId>nl.nibsi.aoc</groupId>
   <artifactId>y17</artifactId>
 
   <name>Year 2017</name>

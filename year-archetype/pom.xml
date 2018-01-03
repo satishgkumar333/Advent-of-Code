@@ -13,14 +13,8 @@
     <version>0.1.0</version>
   </parent>
 
-  <artifactId>swing</artifactId>
-  
-  <name>Swing Puzzle Runner</name>
+  <artifactId>year-archetype</artifactId>
 
-  <dependencies>
-    <dependency>
-      <groupId>nl.nibsi.aoc</groupId>
-      <artifactId>core</artifactId>
-    </dependency>
-  </dependencies>
+  <name>Year Archetype</name>
+  
 </project>
