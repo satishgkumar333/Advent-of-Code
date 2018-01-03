@@ -13,8 +13,8 @@
     <version>0.1.0</version>
   </parent>
 
-  <artifactId>year-archetype</artifactId>
+  <artifactId>new-year-archetype</artifactId>
 
-  <name>Year Archetype</name>
+  <name>New Year Archetype</name>
   
 </project>
