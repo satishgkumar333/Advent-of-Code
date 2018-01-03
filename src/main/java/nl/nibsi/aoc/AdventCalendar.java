@@ -1,6 +1,7 @@
 package nl.nibsi.aoc;
 
 import java.time.*;
+import java.time.format.*;
 import java.util.*;
 
 import nl.nibsi.aoc.spi.*;
@@ -9,15 +10,18 @@ import static java.time.format.DateTimeFormatter.*;
 import static java.time.format.FormatStyle.*;
 
 import static java.util.Collections.*;
+import static java.util.ResourceBundle.*;
 import static java.util.stream.Collectors.*;
 
 public final class AdventCalendar {
+
+  private static final String PUZZLE_NAME_BUNDLE_NAME = "nl.nibsi.aoc.PuzzleNames";
 
   private final Map<LocalDate, Puzzle> puzzles;
   private final List<PuzzleNameProvider> puzzleNameProviders;
 
   private AdventCalendar(
-    Map<LocalDate, ? extends Puzzle> puzzles,
+    Map<? extends LocalDate, ? extends Puzzle> puzzles,
     Collection<? extends PuzzleNameProvider> puzzleNameProviders
   ) {
     if (puzzles == null || puzzleNameProviders == null)
@@ -34,19 +38,20 @@ public final class AdventCalendar {
 
     this.puzzleNameProviders.add((date, locale) -> {
       try {
-        return Optional.of(ResourceBundle.getBundle("puzzleNames", locale).getString(date.format(ISO_LOCAL_DATE)));
+        return Optional.of(getBundle(PUZZLE_NAME_BUNDLE_NAME, locale).getString(date.format(ISO_LOCAL_DATE)));
       }
+
       catch (MissingResourceException ex) {
-        return Optional.of(date.format(ofLocalizedDate(LONG).withLocale(locale)));
+        return Optional.of(date.format(DateTimeFormatter.ofLocalizedDate(LONG).withLocale(locale)));
       }
     });
   }
 
-  public AdventCalendar(Map<LocalDate, ? extends Puzzle> puzzles, PuzzleNameProvider puzzleNameProvider) {
+  public AdventCalendar(Map<? extends LocalDate, ? extends Puzzle> puzzles, PuzzleNameProvider puzzleNameProvider) {
     this(puzzles, singleton(puzzleNameProvider));
   }
 
-  public AdventCalendar(Map<LocalDate, Puzzle> puzzles) {
+  public AdventCalendar(Map<? extends LocalDate, ? extends Puzzle> puzzles) {
     this(puzzles, emptySet());
   }
 
@@ -78,7 +83,9 @@ public final class AdventCalendar {
   }
 
   public Optional<NamedAndDatedPuzzle> getPuzzleForDate(LocalDate date) {
-    return Optional.ofNullable(puzzles.containsKey(date) ? new NamedAndDatedPuzzle(this, date) : null);
+    return puzzles.containsKey(date)
+      ? Optional.of(new NamedAndDatedPuzzle(this, date))
+      : Optional.empty();
   }
 
   String getPuzzleName(LocalDate date, Locale locale) {
@@ -88,5 +95,14 @@ public final class AdventCalendar {
       .map(Optional::get)
       .findFirst()
       .orElseGet(date::toString);
+  }
+
+  public static void main(String... args) {
+    AdventCalendar calendar = load();
+    
+    calendar.getPuzzleDates().stream()
+      .map(calendar::getPuzzleForDate)
+      .map(Optional::get)
+      .forEachOrdered(System.out::println);
   }
 }

@@ -13,11 +13,11 @@ public final class NamedAndDatedPuzzle implements Puzzle {
     if (calendar == null || date == null)
       throw new IllegalArgumentException();
 
+    if (!calendar.getPuzzleDates().contains(date))
+      throw new IllegalArgumentException();
+
     this.calendar = calendar;
     this.date = date;
-
-    if (!this.calendar.getPuzzleDates().contains(this.date))
-      throw new IllegalArgumentException();
   }
 
   public LocalDate getDate() {
@@ -48,6 +48,6 @@ public final class NamedAndDatedPuzzle implements Puzzle {
 
   @Override
   public String toString() {
-    return getName();
+    return String.format("%tF, %s", date, getName());
   }
 }
