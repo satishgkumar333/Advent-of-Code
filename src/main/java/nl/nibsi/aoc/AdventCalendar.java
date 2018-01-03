@@ -27,8 +27,12 @@ public final class AdventCalendar {
     if (puzzles == null || puzzleNameProviders == null)
       throw new IllegalArgumentException();
 
-    if (puzzles.containsKey(null))
-      throw new IllegalArgumentException();
+    try {
+      if (puzzles.containsKey(null))
+        throw new IllegalArgumentException();
+    } catch (NullPointerException ex) {
+      // The map can't contain null keys, so we're good.
+    }
 
     this.puzzles = new TreeMap<>(puzzles);
     this.puzzleNameProviders = new ArrayList<>(puzzleNameProviders);
@@ -95,14 +99,5 @@ public final class AdventCalendar {
       .map(Optional::get)
       .findFirst()
       .orElseGet(date::toString);
-  }
-
-  public static void main(String... args) {
-    AdventCalendar calendar = load();
-    
-    calendar.getPuzzleDates().stream()
-      .map(calendar::getPuzzleForDate)
-      .map(Optional::get)
-      .forEachOrdered(System.out::println);
   }
 }
