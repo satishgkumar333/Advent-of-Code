@@ -1,6 +1,1 @@
-/core/target/
-/puzzles/puzzle-runner-exe/target/
-/puzzles/puzzle-runner-swing/target/
-/puzzles/puzzle-year-2017/target/
-/puzzles/puzzle-year-archetype/target/
-/puzzle-testing/target/
+target/

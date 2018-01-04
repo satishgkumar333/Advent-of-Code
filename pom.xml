@@ -52,7 +52,7 @@
   
   <modules>
     <module>core</module>
-    <module>puzzles</module>
     <module>puzzle-testing</module>
+    <module>puzzles</module>
   </modules>
 </project>
