@@ -5,13 +5,14 @@ import java.lang.reflect.*;
 import java.time.*;
 import java.util.*;
 
-import nl.nibsi.aoc.*;
-import nl.nibsi.aoc.spi.*;
+import nl.nibsi.aoc.Puzzle;
+import nl.nibsi.aoc.spi.PuzzleProvider;
 
-import static java.time.format.DateTimeFormatter.*;
+import static java.time.format.DateTimeFormatter.ISO_LOCAL_DATE;
 
-import static java.util.Collections.*;
-import static java.util.stream.Collectors.*;
+import static java.util.Collections.unmodifiableMap;
+
+import static java.util.stream.Collectors.toMap;
 
 public class DefaultPuzzleProvider implements PuzzleProvider {
 
@@ -40,8 +41,8 @@ public class DefaultPuzzleProvider implements PuzzleProvider {
     this(getPuzzlesFromProperties(properties));
   }
 
-  public DefaultPuzzleProvider(Class<?> base, String propertiesFileName) {
-    this(readPropertiesFile(base, propertiesFileName));
+  public DefaultPuzzleProvider(Class<?> baseClass, String propertiesFileName) {
+    this(readPropertiesFile(baseClass, propertiesFileName));
   }
 
   @Override
@@ -84,9 +85,9 @@ public class DefaultPuzzleProvider implements PuzzleProvider {
     }
   }
 
-  private static Properties readPropertiesFile(Class<?> base, String propertiesFileName) {
+  private static Properties readPropertiesFile(Class<?> baseClass, String propertiesFileName) {
     try (
-      InputStream input = base.getResourceAsStream(propertiesFileName);
+      InputStream input = baseClass.getResourceAsStream(propertiesFileName);
       Reader reader = new BufferedReader(new InputStreamReader(input, "UTF-8"));
     ) {
       Properties properties = new Properties();

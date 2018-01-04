@@ -3,7 +3,7 @@ package nl.nibsi.aoc.spi;
 import java.time.*;
 import java.util.*;
 
-import nl.nibsi.aoc.*;
+import nl.nibsi.aoc.Puzzle;
 
 public interface PuzzleProvider {
 

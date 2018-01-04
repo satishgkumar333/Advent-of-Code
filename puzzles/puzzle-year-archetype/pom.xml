@@ -9,12 +9,12 @@
 
   <parent>
     <groupId>nl.nibsi.aoc</groupId>
-    <artifactId>advent-of-code</artifactId>
+    <artifactId>puzzles</artifactId>
     <version>0.1.0</version>
   </parent>
 
-  <artifactId>core</artifactId>
-  
-  <name>Core Library</name>
+  <artifactId>puzzle-year-archetype</artifactId>
+
+  <name>Puzzle Year Archetype</name>
   
 </project>

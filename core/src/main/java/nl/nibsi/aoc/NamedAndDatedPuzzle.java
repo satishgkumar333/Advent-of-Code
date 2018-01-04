@@ -37,12 +37,12 @@ public final class NamedAndDatedPuzzle implements Puzzle {
   }
 
   @Override
-  public String solveFirstPart(Reader inputReader) throws IOException {
+  public String solveFirstPart(BufferedReader inputReader) throws IOException {
     return actualPuzzle().solveFirstPart(inputReader);
   }
 
   @Override
-  public String solveSecondPart(Reader inputReader) throws IOException {
+  public String solveSecondPart(BufferedReader inputReader) throws IOException {
     return actualPuzzle().solveSecondPart(inputReader);
   }
 

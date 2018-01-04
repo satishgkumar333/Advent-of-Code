@@ -9,12 +9,23 @@
 
   <parent>
     <groupId>nl.nibsi.aoc</groupId>
-    <artifactId>advent-of-code</artifactId>
+    <artifactId>puzzles</artifactId>
     <version>0.1.0</version>
   </parent>
 
-  <artifactId>core</artifactId>
-  
-  <name>Core Library</name>
-  
+  <artifactId>puzzle-year-2017</artifactId>
+
+  <name>Puzzle Year 2017</name>
+
+  <dependencies>
+    <dependency>
+      <groupId>nl.nibsi.aoc</groupId>
+      <artifactId>core</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>nl.nibsi.aoc</groupId>
+      <artifactId>puzzle-testing</artifactId>
+    </dependency>
+  </dependencies>
 </project>

@@ -9,12 +9,18 @@
 
   <parent>
     <groupId>nl.nibsi.aoc</groupId>
-    <artifactId>advent-of-code</artifactId>
+    <artifactId>puzzles</artifactId>
     <version>0.1.0</version>
   </parent>
 
-  <artifactId>core</artifactId>
+  <artifactId>puzzle-runner-swing</artifactId>
   
-  <name>Core Library</name>
-  
+  <name>Swing Puzzle Runner</name>
+
+  <dependencies>
+    <dependency>
+      <groupId>nl.nibsi.aoc</groupId>
+      <artifactId>core</artifactId>
+    </dependency>
+  </dependencies>
 </project>

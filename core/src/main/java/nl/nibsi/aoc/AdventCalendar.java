@@ -4,12 +4,18 @@ import java.time.*;
 import java.time.format.*;
 import java.util.*;
 
-import nl.nibsi.aoc.spi.*;
+import nl.nibsi.aoc.spi.PuzzleNameProvider;
+import nl.nibsi.aoc.spi.PuzzleProvider;
 
-import static java.time.format.FormatStyle.*;
+import static java.time.format.FormatStyle.LONG;
 
-import static java.util.Collections.*;
-import static java.util.stream.Collectors.*;
+import static java.util.Collections.emptyMap;
+import static java.util.Collections.emptySet;
+import static java.util.Collections.singleton;
+import static java.util.Collections.unmodifiableSet;
+
+import static java.util.stream.Collectors.toList;
+import static java.util.stream.Collectors.toMap;
 
 public final class AdventCalendar {
 

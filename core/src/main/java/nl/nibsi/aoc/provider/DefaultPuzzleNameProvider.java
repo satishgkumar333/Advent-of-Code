@@ -3,11 +3,11 @@ package nl.nibsi.aoc.provider;
 import java.time.*;
 import java.util.*;
 
-import nl.nibsi.aoc.spi.*;
+import nl.nibsi.aoc.spi.PuzzleNameProvider;
 
-import static java.time.format.DateTimeFormatter.*;
+import static java.time.format.DateTimeFormatter.ISO_LOCAL_DATE;
 
-import static java.util.ResourceBundle.*;
+import static java.util.ResourceBundle.getBundle;
 
 public class DefaultPuzzleNameProvider implements PuzzleNameProvider {
 

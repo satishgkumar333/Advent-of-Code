@@ -13,8 +13,20 @@
     <version>0.1.0</version>
   </parent>
 
-  <artifactId>core</artifactId>
-  
-  <name>Core Library</name>
-  
+  <artifactId>puzzle-testing</artifactId>
+
+  <name>Puzzle Testing Library</name>
+
+  <dependencies>
+    <dependency>
+      <groupId>nl.nibsi.aoc</groupId>
+      <artifactId>core</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>compile</scope>
+    </dependency>
+  </dependencies>
 </project>

@@ -3,17 +3,19 @@ package nl.nibsi.aoc.provider;
 import java.time.*;
 import java.util.*;
 
-import nl.nibsi.aoc.*;
-import nl.nibsi.aoc.spi.*;
+import nl.nibsi.aoc.Puzzle;
+import nl.nibsi.aoc.spi.PuzzleNameProvider;
+import nl.nibsi.aoc.spi.PuzzleProvider;
 
 public class QuickPuzzleProvider implements PuzzleProvider, PuzzleNameProvider {
 
   private final PuzzleProvider puzzleProvider;
   private final PuzzleNameProvider puzzleNameProvider;
   
-  public QuickPuzzleProvider(Class<?> base) {
-    this.puzzleProvider = new DefaultPuzzleProvider(base, "Puzzles.properties");
-    this.puzzleNameProvider = new DefaultPuzzleNameProvider(base.getPackageName() + ".PuzzleNames");
+  public QuickPuzzleProvider() {
+    Class<? extends QuickPuzzleProvider> providerClass = getClass();
+    this.puzzleProvider = new DefaultPuzzleProvider(providerClass, "Puzzles.properties");
+    this.puzzleNameProvider = new DefaultPuzzleNameProvider(providerClass.getPackageName() + ".PuzzleNames");
   }
 
   @Override
