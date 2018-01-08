@@ -13,31 +13,24 @@
     <version>0.1.0</version>
   </parent>
 
-  <artifactId>puzzle-year-2017</artifactId>
+  <artifactId>puzzle-maven-plugin</artifactId>
+  <packaging>maven-plugin</packaging>
 
-  <name>Puzzle Year 2017</name>
+  <name>Puzzle Maven Plugin</name>
 
   <dependencies>
     <dependency>
-      <groupId>${project.groupId}</groupId>
-      <artifactId>core</artifactId>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-plugin-api</artifactId>
+      <version>3.5.2</version>
+      <scope>provided</scope>
     </dependency>
 
     <dependency>
-      <groupId>${project.groupId}</groupId>
-      <artifactId>puzzle-testing</artifactId>
+      <groupId>org.apache.maven.plugin-tools</groupId>
+      <artifactId>maven-plugin-annotations</artifactId>
+      <version>3.5</version>
+      <scope>provided</scope>
     </dependency>
   </dependencies>
-
-  <build>
-    <pluginManagement>
-      <plugins>
-        <plugin>
-          <groupId>${project.groupId}</groupId>
-          <artifactId>puzzle-maven-plugin</artifactId>
-          <version>${project.version}</version>
-        </plugin>
-      </plugins>
-    </pluginManagement>
-  </build>
 </project>

@@ -31,6 +31,7 @@
   </dependencyManagement>
 
   <modules>
+    <module>puzzle-maven-plugin</module>
     <module>puzzle-runner-exe</module>
     <module>puzzle-runner-swing</module>
     <module>puzzle-year-2017</module>

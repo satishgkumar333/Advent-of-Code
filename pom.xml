@@ -15,6 +15,7 @@
   <name>Advent of Code</name>
   
   <properties>
+    <advent-of-code.version>${project.version}</advent-of-code.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>

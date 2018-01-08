@@ -30,4 +30,16 @@
       <artifactId>puzzle-testing</artifactId>
     </dependency>
   </dependencies>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>nl.nibsi.aoc</groupId>
+          <artifactId>puzzle-maven-plugin</artifactId>
+          <version>${advent-of-code.version}</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
 </project>
