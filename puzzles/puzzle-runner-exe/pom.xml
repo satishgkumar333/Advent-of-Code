@@ -19,12 +19,12 @@
 
   <dependencies>
     <dependency>
-      <groupId>nl.nibsi.aoc</groupId>
+      <groupId>${project.groupId}</groupId>
       <artifactId>puzzle-runner-swing</artifactId>
     </dependency>
 
     <dependency>
-      <groupId>nl.nibsi.aoc</groupId>
+      <groupId>${project.groupId}</groupId>
       <artifactId>puzzle-year-2017</artifactId>
     </dependency>
   </dependencies>

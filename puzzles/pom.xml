@@ -16,13 +16,13 @@
   <dependencyManagement>
     <dependencies>      
       <dependency>
-        <groupId>nl.nibsi.aoc</groupId>
+        <groupId>${project.groupId}</groupId>
         <artifactId>puzzle-runner-swing</artifactId>
         <version>${project.version}</version>
       </dependency>
       
       <dependency>
-        <groupId>nl.nibsi.aoc</groupId>
+        <groupId>${project.groupId}</groupId>
         <artifactId>puzzle-year-2017</artifactId>
         <version>${project.version}</version>
         <scope>runtime</scope>

@@ -23,13 +23,13 @@
   <dependencyManagement>
     <dependencies>
       <dependency>
-        <groupId>nl.nibsi.aoc</groupId>
+        <groupId>${project.groupId}</groupId>
         <artifactId>core</artifactId>
         <version>${project.version}</version>
       </dependency>
 
       <dependency>
-        <groupId>nl.nibsi.aoc</groupId>
+        <groupId>${project.groupId}</groupId>
         <artifactId>puzzle-testing</artifactId>
         <version>${project.version}</version>
         <scope>test</scope>
