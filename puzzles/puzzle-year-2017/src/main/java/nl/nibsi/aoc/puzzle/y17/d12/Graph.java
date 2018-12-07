@@ -82,7 +82,11 @@ final class Graph<K,V,W> {
   }
   
   Stream<Edge<K,W>> getOutgoingEdges(K key) {
-    return Stream.ofNullable(edges.get(key)).map(Map::values).flatMap(Collection::stream);
+    Map<K, Edge<K,W>> outgoing = edges.get(key);
+    if (outgoing == null)
+      return Stream.empty();
+
+    return Stream.of(outgoing).map(Map::values).flatMap(Collection::stream);
   }
   
   Stream<Edge<K,W>> getIncomingEdges(K key) {

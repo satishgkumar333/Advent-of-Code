@@ -27,6 +27,13 @@
         <version>${project.version}</version>
         <scope>runtime</scope>
       </dependency>
+
+      <dependency>
+        <groupId>${project.groupId}</groupId>
+        <artifactId>puzzle-year-2018</artifactId>
+        <version>${project.version}</version>
+        <scope>runtime</scope>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 
@@ -36,5 +43,6 @@
     <module>puzzle-runner-swing</module>
     <module>puzzle-year-2017</module>
     <module>puzzle-year-archetype</module>
+    <module>puzzle-year-2018</module>
   </modules>
 </project>

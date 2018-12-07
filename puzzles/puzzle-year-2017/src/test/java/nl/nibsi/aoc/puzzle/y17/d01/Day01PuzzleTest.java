@@ -1,7 +1,7 @@
-package nl.nibsi.aoc.puzzle.y17;
+package nl.nibsi.aoc.puzzle.y17.d01;
 
-import nl.nibsi.aoc.puzzle.y17.Day01Puzzle;
 import nl.nibsi.aoc.Puzzle;
+import nl.nibsi.aoc.puzzle.y17.Day01Puzzle;
 import nl.nibsi.aoc.testing.PuzzleTest;
 
 public final class Day01PuzzleTest extends PuzzleTest {

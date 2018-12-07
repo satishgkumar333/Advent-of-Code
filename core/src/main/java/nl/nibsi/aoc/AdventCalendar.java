@@ -56,20 +56,14 @@ public final class AdventCalendar {
   }
 
   public static AdventCalendar load() {
-    Map<LocalDate, Puzzle> puzzles = ServiceLoader.load(PuzzleProvider.class).stream()
-      .map(ServiceLoader.Provider::get)
-      .flatMap(provider -> provider.getPuzzleDates().stream()
-        .map(date -> new AbstractMap.SimpleImmutableEntry<>(date, provider.getPuzzleForDate(date)))
-        .filter(entry -> entry.getValue().isPresent()))
-      .collect(toMap(
-        (entry) -> entry.getKey(),
-        (entry) -> entry.getValue().get(),
-        (first, second) -> first
-      ));
+    Map<LocalDate, Puzzle> puzzles = new TreeMap<>();
+    for (PuzzleProvider provider: ServiceLoader.load(PuzzleProvider.class))
+      for (LocalDate date: provider.getPuzzleDates())
+        provider.getPuzzleForDate(date).ifPresent(puzzle -> puzzles.putIfAbsent(date, puzzle));
 
-    List<PuzzleNameProvider> puzzleNameProviders = ServiceLoader.load(PuzzleNameProvider.class).stream()
-      .map(ServiceLoader.Provider::get)
-      .collect(toList());
+    List<PuzzleNameProvider> puzzleNameProviders = new ArrayList<>();
+    for (PuzzleNameProvider provider: ServiceLoader.load(PuzzleNameProvider.class))
+      puzzleNameProviders.add(provider);
 
     return new AdventCalendar(puzzles, puzzleNameProviders);
   }

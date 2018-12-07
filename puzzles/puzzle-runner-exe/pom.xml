@@ -27,5 +27,10 @@
       <groupId>${project.groupId}</groupId>
       <artifactId>puzzle-year-2017</artifactId>
     </dependency>
+
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>puzzle-year-2018</artifactId>
+    </dependency>
   </dependencies>
 </project>

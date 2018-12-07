@@ -58,8 +58,8 @@ public abstract class PuzzleTest {
     try (
       Secret answer = createPartOneAnswer();
     ) {
-      char[] guess = puzzle.solveFirstPart(inputReader).toCharArray();
-      assertTrue(answer.isCorrectAttempt(guess));
+      String guess = puzzle.solveFirstPart(inputReader);
+      assertTrue(String.format("Guess: %s", guess), answer.isCorrectAttempt(guess.toCharArray()));
     }
   }
 
@@ -68,8 +68,8 @@ public abstract class PuzzleTest {
     try (
       Secret answer = createPartTwoAnswer();
     ) {
-      char[] guess = puzzle.solveSecondPart(inputReader).toCharArray();
-      assertTrue(answer.isCorrectAttempt(guess));
+      String guess = puzzle.solveSecondPart(inputReader);
+      assertTrue(String.format("Guess: %s", guess), answer.isCorrectAttempt(guess.toCharArray()));
     }
   }
 }

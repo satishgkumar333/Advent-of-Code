@@ -72,6 +72,6 @@ final class Firewall {
 
   public static void main(String... args) {
     Firewall firewall = readFirewallFromInput();
-    System.out.println(IntStream.iterate(0, delay -> delay + 1).dropWhile(firewall::blocksPacket).findFirst().getAsInt());
+    System.out.println(IntStream.iterate(0, delay -> delay + 1).filter(i -> !firewall.blocksPacket(i)).findFirst().getAsInt());
   }
 }

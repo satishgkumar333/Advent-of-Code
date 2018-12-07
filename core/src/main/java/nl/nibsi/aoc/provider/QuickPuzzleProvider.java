@@ -15,7 +15,7 @@ public class QuickPuzzleProvider implements PuzzleProvider, PuzzleNameProvider {
   public QuickPuzzleProvider() {
     Class<? extends QuickPuzzleProvider> providerClass = getClass();
     this.puzzleProvider = new DefaultPuzzleProvider(providerClass, "Puzzles.properties");
-    this.puzzleNameProvider = new DefaultPuzzleNameProvider(providerClass.getPackageName() + ".PuzzleNames");
+    this.puzzleNameProvider = new DefaultPuzzleNameProvider(providerClass.getPackage().getName() + ".PuzzleNames");
   }
 
   @Override

@@ -53,13 +53,15 @@ final class TreeNode<K,V> {
     if (this.key.equals(key))
       return Optional.of(this);
 
-    return Optional.ofNullable(children.get(key)).or(() ->
-      children.values().stream()
+    TreeNode<K,V> node = children.get(key);
+    if (node != null)
+      return Optional.of(node);
+
+    return children.values().stream()
         .map(child -> child.findNode(key))
         .filter(Optional::isPresent)
         .map(Optional::get)
-        .findAny()
-    );
+        .findAny();
   }
 
   Optional<TreeNode<K,V>> getDifferentChild(Comparator<? super V> valueComparer) {
